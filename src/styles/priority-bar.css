@@ -1,0 +1,79 @@
+:root {
+  --priority-bar-bg: hsla(240, 13%, 10%, 0.879);
+  --priority-btn: hsla(240, 13%, 13%, 0.879);
+}
+
+html[data-theme='light'] {
+  --priority-bar-bg: hsl(240, 43%, 91%);
+  --priority-btn: hsl(240, 100%, 98%);
+}
+
+.priority-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--priority-bar-bg);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.priority-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Inter-bold';
+  font-size: 12px !important;
+  opacity: 0.6;
+}
+
+.priority-btn:last-child {
+  margin-bottom: 0px;
+}
+
+.priority-btn.active {
+  background-color: var(--priority-btn);
+  box-shadow: 0px 2px 16px hsla(270, 6%, 7%, 0.107),
+    0px 4px 16px hsla(270, 6%, 7%, 0.046);
+  opacity: 1;
+}
+
+html[theme-data='dark'] .priority-btn.active {
+  box-shadow: 0px 2px 16px hsla(270, 6%, 7%, 0.795),
+    0px 4px 16px hsla(270, 6%, 7%, 0.21);
+}
+
+.priority-btn .circle {
+  display: inline-block;
+  margin-right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: hsl(153, 100%, 61%);
+}
+
+.priority-btn .circle.medium {
+  background-color: hsl(44, 100%, 65%);
+}
+
+.priority-btn .circle.high {
+  background-color: hsl(353, 100%, 60%);
+}
+
+@media screen and (min-width: 640px) {
+  .priority-bar {
+    flex-direction: row;
+    padding: 4px;
+  }
+
+  .priority-bar .priority-btn {
+    margin-bottom: 0px;
+    padding: 10px;
+  }
+}

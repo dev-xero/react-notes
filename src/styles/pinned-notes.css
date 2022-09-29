@@ -1,0 +1,133 @@
+:root {
+  --note-border: hsla(203, 100%, 94%, 0.194);
+  --note-text: hsla(212, 51%, 93%, 0.922);
+  --priority-color: hsla(220, 16%, 85%, 0.747);
+}
+
+html[data-theme='light'] {
+  --note-border: hsla(203, 6%, 25%, 0.224);
+  --note-text: hsla(212, 5%, 18%, 0.922);
+  --priority-color: hsla(220, 16%, 35%, 0.745);
+}
+
+.pinned-notes {
+  margin-top: 0px;
+}
+
+.pinned-notes h1.title {
+  color: var(--primary-color);
+  font-family: 'Inter-bold';
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.pinned-notes h1.title span.bx {
+  margin-right: 8px;
+}
+
+.note-list {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.note {
+  border: 2px solid var(--note-border);
+  padding: 18px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: border-color 200ms ease;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.note header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.note .priority {
+  font-size: 12px;
+  margin-left: 2px !important;
+  color: var(--priority-color);
+  transition: 200ms ease color;
+}
+
+.note .priority .circle {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: hsl(353, 100%, 60%);
+  margin-right: 4px;
+}
+
+.note .priority .circle.mid {
+  background-color: hsl(44, 100%, 65%);
+}
+
+.note .priority .circle.low {
+  background-color: hsl(153, 100%, 61%);
+}
+
+.note header .bx.pin-icon-h {
+  transform: rotate(45deg);
+  font-size: 14px;
+  transition: 200ms ease color;
+}
+
+.note .title {
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+  transition: 200ms ease color;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.note .desc {
+  font-size: 14px;
+  color: var(--note-text);
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 200ms ease color;
+}
+
+html[data-theme='light'] .note {
+  color: hsla(220, 7%, 16%, 0.902);
+}
+
+html[data-theme='light'] .note header .bx.pin-icon-h {
+  color: var(--primary-color) !important;
+}
+
+.note:hover {
+  border-color: var(--primary-color);
+}
+
+@media screen and (min-width: 640px) {
+  .pinned-notes {
+    margin-top: 24px;
+  }
+
+  .pinned-notes h1.title {
+    font-size: 24px;
+  }
+
+  .note-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .note {
+    padding: 24px;
+    width: calc(50% - 16px);
+    margin: 0px 8px;
+    margin-bottom: 8px;
+  }
+}

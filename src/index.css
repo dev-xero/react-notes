@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'Inter-black';
+  src: url('./fonts/Inter/Inter-w900.otf');
+}
+
+@font-face {
+  font-family: 'Inter-extrabold';
+  src: url('./fonts/Inter/Inter-w800.otf');
+}
+
+@font-face {
+  font-family: 'Inter-bold';
+  src: url('./fonts/Inter/Inter-w700.otf');
+}
+
+@font-face {
+  font-family: 'Inter-medium';
+  src: url('./fonts/Inter/Inter-w600.otf');
+}
+
+@font-face {
+  font-family: 'Inter-regular';
+  src: url('./fonts/Inter/Inter-w500.otf');
+}
+
+@font-face {
+  font-family: 'Inter-light';
+  src: url('./fonts/Inter/Inter-w400.otf');
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+*::selection {
+  background-color: var(--primary-color) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+
+:root {
+  --primary-color: hsl(205, 100%, 57%);
+  --app-font: 'Inter-regular';
+}
+
+html[data-theme='light'] {
+  --bg-color: hsl(0, 0%, 100%);
+  --text-color: hsl(240, 11%, 7%);
+  --app-header-color: hsla(240, 46%, 95%, 0.589);
+  --theme-toggle-bg: hsla(240, 50%, 92%, 0.877);
+  --add-note-bg: hsla(240, 100%, 97%, 0.877);
+  --theme-toggle-border: 2px solid hsla(240, 41%, 91%, 0.589);
+}
+
+html[data-theme='dark'] {
+  --bg-color: hsl(240, 11%, 7%);
+  --text-color: hsl(0, 0%, 100%);
+  --primary-color: hsl(205, 100%, 57%);
+  --app-font: 'Inter-regular';
+  --app-header-color: hsla(240, 13%, 9%, 0.879);
+  --theme-toggle-bg: hsl(240, 13%, 12%);
+  --theme-toggle-border: 2px solid hsl(240, 15%, 17%);
+  --add-note-bg: hsl(240, 13%, 10%);
+}
+
+body {
+  height: 100%;
+  min-height: 100%;
+  font-family: var(--app-font);
+}
+
+body #notes-app {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: color 200ms ease, background-color 200ms ease;
+}
+
+.app-contents {
+  width: 100%;
+  padding: 0px 24px;
+  margin-top: 124px;
+}
+
+.inner-width {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0px auto !important;
+}
+
+.highlight-blue {
+  color: var(--primary-color);
+}
+
+.theme-toggle {
+  transition: background-color 200ms ease, color 200ms ease,
+    border-color 200ms ease;
+}
+
+.theme-toggle span.light {
+  transition: margin-left 200ms ease;
+  will-change: margin;
+}
+
+.theme-toggle.light span.light {
+  margin-left: -20px;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: hsl(0, 0%, 100%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: hsl(0, 0%, 100%);
+    --text-color: hsl(240, 11%, 7%);
+    --app-header-color: hsla(240, 46%, 95%, 0.589);
+    --theme-toggle-bg: hsla(240, 100%, 97%, 0.877);
+    --theme-toggle-border: 2px solid hsla(240, 41%, 91%, 0.589);
+    --theme-toggle-bg: hsla(240, 50%, 92%, 0.877);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .app-contents {
+    margin-top: 84px;
+    padding: 0px 12px;
+  }
+
+  header.app-header {
+    text-align: left;
+    font-size: 18px;
+    padding: 24px 18px;
+  }
+
+  header.app-header h1.title {
+    font-size: 18px;
+  }
+
+  .theme-toggle {
+    top: calc(50% - 38px) !important;
+    right: 18px !important;
+    transform: scale(0.8) translateY(calc(-50% + 40px)) !important;
+  }
+
+  .add-notes-block {
+    transform: scale(0.8);
+  }
+}

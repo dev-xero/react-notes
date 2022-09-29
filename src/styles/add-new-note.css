@@ -1,0 +1,92 @@
+:root {
+  --add-note-content-bg: hsl(240, 13%, 13%);
+  --pin-btn-bg: hsl(240, 13%, 12%);
+}
+
+html[data-theme='light'] {
+  --add-note-content-bg: hsl(240, 46%, 95%);
+  --pin-btn-bg: hsla(240, 37%, 93%, 0.877);
+}
+
+.add-new-note {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 99999999999999999999;
+}
+
+.add-new-note.visible {
+  display: block;
+}
+
+.add-new-note .overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(240, 11%, 7%, 0.591);
+  z-index: -99;
+}
+
+.add-new-content {
+  max-width: 580px;
+  width: 70%;
+  position: relative;
+  top: 50%;
+  padding: 24px;
+  margin: auto;
+  border-radius: 10px;
+  transform: translateY(-50%);
+  background-color: var(--add-note-content-bg);
+}
+
+.add-new-content .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-new-content .header h2 {
+  font-size: 20px;
+  font-family: 'Inter-bold';
+  color: var(--text-color);
+}
+
+html[data-theme='light'] .header h2 {
+  color: var(--primary-color);
+}
+
+.pin-btn {
+  transition: border-color 200ms ease, color 200ms ease,
+    background-color 200ms ease;
+  color: hsla(0, 0%, 100%, 0.655);
+}
+
+html[data-theme='light'] .pin-btn {
+  color: var(--primary-color);
+}
+
+.pin-btn:hover {
+  border-color: var(--primary-color) !important;
+}
+
+.pin-btn.pinned {
+  border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+
+@media screen and (max-width: 640px) {
+  .add-new-content {
+    width: 90%;
+    padding: 16px 20px;
+  }
+
+  .add-new-content .header h2 {
+    font-size: 16px;
+  }
+}

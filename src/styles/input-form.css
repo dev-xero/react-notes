@@ -1,0 +1,47 @@
+:root {
+  --form-bg: hsl(240, 13%, 15%);
+  --form-border: hsl(240, 13%, 20%);
+}
+
+html[data-theme='light'] {
+  --form-bg: hsl(240, 68%, 93%);
+  --form-border: hsl(240, 39%, 89%);
+}
+
+form.input-form {
+  margin-top: 32px;
+  display: block;
+}
+
+form.input-form input,
+form.input-form textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--form-border);
+  outline: none;
+  font-weight: 500;
+  font-family: Arial;
+  border-radius: 8px;
+  background-color: var(--form-bg);
+  transition: border-color 200ms ease;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+form.input-form textarea {
+  margin: 12px 0px;
+  resize: none;
+  height: 180px;
+}
+
+form.input-form input:focus,
+form.input-form textarea:focus {
+  border-color: var(--primary-color);
+}
+
+@media screen and (max-width: 640px) {
+  form.input-form textarea {
+    height: 140px;
+  }
+}
